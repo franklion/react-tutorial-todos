@@ -28,6 +28,8 @@
 
             3. 在 事件觸發同時，使用 inline + ES6 arrow function，缺點：每次組件渲染時創建一個新函數，這可能會影響性能
 
-            4. Class Properties (Stage 3 Proposal)，需要 babel 轉換．推薦！！
+            4. Class Properties (Stage 3 Proposal)，需要 babel 轉換．推薦！！     
 
 ## [task]: 完成一個點擊事件，將狀態 food 改成 McDonald
+
+## [自我成長]: 剛開始學習 react ，盡可能的在 render function 去揮灑代碼，這樣成長是最快的:D
