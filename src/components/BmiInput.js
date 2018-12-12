@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 
 class BmiInput extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.heightInput = React.createRef();
+        this.weightInput = React.createRef();
+    }
     render() {
         return (
             <div>
                 <div>
-                    <label>Height: <input type="text" ref="heightInput" defaultValue={170}></input>cm</label>
+                    <label>Height: <input type="text" ref={this.heightInput} defaultValue={170}></input>cm</label>
                 </div>
                 <div>
-                    <label>Weight: <input type="text" ref="weightInput" defaultValue={50}></input>kg</label>
+                    <label>Weight: <input type="text" ref={this.weightInput} defaultValue={50}></input>kg</label>
                 </div>
                 <button onClick={this.handleCalcBmi}>send</button>
                 <button onClick={this.handleResetBmi}>reset</button>    
@@ -17,9 +24,11 @@ class BmiInput extends Component {
     }
 
     handleCalcBmi = () => {
-        //  Uncontrolled Components
-        const heightInputValue = parseInt(this.refs.heightInput.value)
-        const weightInputValue = parseInt(this.refs.weightInput.value)
+        // Uncontrolled Components
+        // ref reference link: https://medium.com/4cats-io/24hrs-react-101-b287ffad1070
+
+        const heightInputValue = parseInt(this.heightInput.current.value)
+        const weightInputValue = parseInt(this.weightInput.current.value)
 
         if (!this.isValidBmiInput(heightInputValue) ||
             !this.isValidBmiInput(weightInputValue)) {
@@ -31,10 +40,8 @@ class BmiInput extends Component {
     }
 
     handleResetBmi = () => {
-        const heightInput = this.refs.heightInput
-        const weightInput = this.refs.weightInput
-        heightInput.value = 0
-        weightInput.value = 0
+        this.heightInput.current.value = 0
+        this.weightInput.current.value = 0
         this.props.handleResetBmi()
     }
 
