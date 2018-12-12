@@ -1,3 +1,9 @@
+/*
+ *  
+ * object destructuring VS modules
+ * 
+ */
+
 // object destructuring 物件解構賦值
 // 冒號前是用來對應物件的屬性名稱
 // 冒號後才是真正建立的變數名稱和被賦值的對象
@@ -11,8 +17,8 @@ let { website: wb, country: ct } = obj
 
 console.log(website) // ReferenceError: website is not defined
 console.log(country) // ReferenceError: country is not defined
-console.log(wb) // 'google'
-console.log(ct) // 'Taiwan'
+console.log(wb)      // 'google'
+console.log(ct)      // 'Taiwan'
 
 
 /* ------------------------------------ */
