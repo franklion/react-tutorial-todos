@@ -6,6 +6,8 @@
     最終修改後改變的是父層資料(父元件一改動資料，子元件因為有偵測到props改動，所以重新執行 render)
 
 
+## flow 圖示
+
 ``
 
             data or function
