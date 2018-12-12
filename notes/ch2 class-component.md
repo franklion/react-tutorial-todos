@@ -22,13 +22,13 @@
 
         ∙  自定義的方法中沒有辦法直接獲得 this, 所以必須自行綁定，有常見幾種做法
 
-            1. 在 constructor 時進行綁定，缺點：數量多時代碼冗長
+            ◦ 在 constructor 時進行綁定，缺點：數量多時代碼冗長
 
-            2. 在 事件觸發同時，使用 inline + bind(this)，缺點：每次組件渲染時創建一個新函數，這可能會影響性能
+            ◦ 在 事件觸發同時，使用 inline + bind(this)，缺點：每次組件渲染時創建一個新函數，這可能會影響性能
 
-            3. 在 事件觸發同時，使用 inline + ES6 arrow function，缺點：每次組件渲染時創建一個新函數，這可能會影響性能
+            ◦ 在 事件觸發同時，使用 inline + ES6 arrow function，缺點：每次組件渲染時創建一個新函數，這可能會影響性能
 
-            4. Class Properties (Stage 3 Proposal)，需要 babel 轉換．推薦！！     
+            ◦ Class Properties (Stage 3 Proposal)，需要 babel 轉換．推薦！！     
 
 ## [task]: 完成一個點擊事件，將狀態 food 改成 McDonald
 
