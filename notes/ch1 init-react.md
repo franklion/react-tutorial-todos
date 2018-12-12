@@ -8,7 +8,7 @@
 
     - 元件
 
-        ∙ 類別元件 class component
+        ∙ 類別元件 class component
 
         ∙ 無狀態的元件 stateless functional component
 
