@@ -2,13 +2,13 @@
 
     - state
 
-        ∙ 宣告與使用
+        ∙ 宣告與使用
 
         ∙ 注意事項
 
     - render function
 
-        ∙ 使用 return ()
+        ∙ 使用 return ()
 
         ∙ 常見寫法
 
