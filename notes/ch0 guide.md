@@ -4,7 +4,9 @@
 
         ∙ 用來建立使用者介面的 JS 函式庫
 
-        ∙ [聲明式宣告](https://www.cnblogs.com/sirkevin/p/8283110.html)
+        ∙ 聲明式渲染，改變狀態就會重新渲染畫面
+        
+            ◦ [聲明式 vs 命令式](https://www.cnblogs.com/sirkevin/p/8283110.html)
 
         ∙ 組件化
 
@@ -20,6 +22,8 @@
 
     - 缺點
 
+        ∙ 要完成一個功能所要學習了解的觀念滿多的，就算功能寫好了，也不見得是 better practices
+
         ∙ 同一個功能語法可能有很多種，所以團隊必需要有開發規範，如果有 code review 更好！
 
         ∙ 社群學習資源很多，但是好壞參差不齊
@@ -33,3 +37,5 @@
         ∙ create-react-app
     
         ∙ umi.js
+
+        ∙ 自行撰寫 / 民間高手的樣板
