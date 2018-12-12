@@ -2,7 +2,7 @@
 
     - 常見自訂函式名稱
 
-        ∙ handleXXX
+        ∙ handleXXX
 
         ∙ _XXX
 
