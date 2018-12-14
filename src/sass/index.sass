@@ -1,8 +1,107 @@
+@import './_normalize.sass'
+@import './_normalize-custom.sass'
+
+
+html,body
+    margin: 0
+    padding: 0
+
 body
-    background-color: #eee
+    color: #F29A29
+    background-color: #FEF3E8
+    min-width: 1000px
+    overflow: auto
+    height: auto
 
-.warn
-    color: red
+.container
+    width: 800px
+    margin: 0 auto
+    background-color: #FFF
+    border-right: none
+    border-left: none
+    box-shadow: #eec898 0 2px 2px 0
 
-.good
-    color: rgb(72, 71, 71)
+.banner
+    max-height: 400px
+    overflow: hidden  
+    .cover
+        display: block
+        width: 100%
+        height: auto
+
+.intro
+    padding: 20px
+    line-height: 1.5
+    color: #969696
+    .intro-title
+        color: #F5A72E
+        font-size: 1.5em
+        margin: 0 0 1% 0
+    .intro-text
+        color: #969696
+        font-size: 14px
+
+.begin
+    text-align: center
+    padding: 5px 0
+    font-size: 1em
+    background-color: rgba(254,243,232,.98)
+
+.icon-hand-point-down
+    margin: 0 4px
+.icon-circle
+    color: #eec898
+    margin-right: 9px 
+
+.survey-form
+    .subject-wrapper
+        width: 100%
+        height: auto
+        box-sizing: border-box
+        margin: 20px auto
+        padding: 0 16px 30px
+        background-color: transparent
+        clear: both
+        overflow: hidden
+        position: relative
+        .subject-number
+            width: 6%
+            font-size: 1em
+        .subject-title
+            position: relative
+            color: #EF7D00
+            font-size: 1.17em
+            padding-left: 41px
+            &:before
+                content: attr(data-index)
+                position: absolute
+                left: 4px
+                top: 5px
+                font-size: 16px
+        .subject-answer
+            width: 96%
+            margin: 10px
+            margin-left: 5%
+            // height: 500px
+            // background-color: rgba(0,0,0,.1)
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+
+            .option
+                width: 48%
+                cursor: pointer
+                color: #F5A72E
+                font-size: 18px
+                line-height: 1.5
+                margin-bottom: 10px
+                padding: 8px 0 8px 5px
+                border: 1px dotted #facf8f
+                // background-color: rgba(0,0,0,.3)
+                &:nth-child(2n+1)
+                    margin-right: 2%
+                &.is-active   
+                    background-color: #F5A72E
+                    color: #fff
+                    .icon-circle
+                        color: #fff
