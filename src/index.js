@@ -5,8 +5,9 @@ import './sass/index.sass'
 
 // third-party
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCircle, faHandPointDown, faDotCircle } from '@fortawesome/free-regular-svg-icons'
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faHandPointDown, faDotCircle, faSquare } from '@fortawesome/free-regular-svg-icons'
 
-library.add( faCircle, faHandPointDown, faDotCircle )
+library.add( faCircle, faHandPointDown, faDotCircle, faSquare, faCheckSquare )
 
 ReactDOM.render(<App />, document.getElementById('root'));
