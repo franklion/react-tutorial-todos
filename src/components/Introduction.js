@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Introduction extends Component {
-
-    render() {
-        const { title, desc } = this.props
-        return (
-            <div className="intro">
-                <h1 className="intro-title">{title}</h1>
-                <p className="intro-text">{desc}</p>
-            </div>
-        );
-    }
+const Introduction = props => {
+    const { title, desc } = props
+    return (
+        <div className="intro">
+            <h1 className="intro-title">{title}</h1>
+            <p className="intro-text">{desc}</p>
+        </div>
+    );
 }
 
 Introduction.propTypes = {
