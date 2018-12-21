@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
-import { scroller } from 'react-scroll'
-import BannerImage from '../images/banner.jpg'
+import React, { Component } from 'react';
+import { scroller } from 'react-scroll';
+import BannerImage from '../images/banner.jpg';
+
+// components
+import Banner from './Banner';
+import Introduction from './Introduction';
+import Begin from './Begin';
+import Question from './Question';
+import Footer from './Footer';
 
 // https://www.surveycake.com/s/Vxz86
-
-import Banner from './Banner'
-import Introduction from './Introduction'
-import Begin from './Begin'
-import Question from './Question'
-import Footer from './Footer'
 
 class App extends Component {
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Element } from 'react-scroll'
-import Option from './Option'
+import { Element } from 'react-scroll';
+import Option from './Option';
 
 class Question extends Component {
     constructor(props) {
