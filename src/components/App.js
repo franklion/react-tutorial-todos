@@ -8,6 +8,7 @@ import Introduction from './Introduction';
 import Begin from './Begin';
 import Question from './Question';
 import Footer from './Footer';
+import SweetAlert from './SweetAlert';
 
 // https://www.surveycake.com/s/Vxz86
 
@@ -45,12 +46,13 @@ class App extends Component {
                     answer: []
                 }
             },
-            isTriggerShowAllAnswerTip: false
+            isTriggerShowAllAnswerTip: false,
+            isShowSweetAlert: false
         }
     }
 
     render() {
-        const { title, desc, questions, isTriggerShowAllAnswerTip } = this.state
+        const { title, desc, questions, isTriggerShowAllAnswerTip, isShowSweetAlert } = this.state
 
         return (
             <div id="app" className="app">
@@ -80,6 +82,9 @@ class App extends Component {
                 </div>
 
                 <Footer percentage={this.handldeProcess()} />
+                <SweetAlert isShowSweetAlert={isShowSweetAlert}
+                            handleHideSweetAlert={this.handleHideSweetAlert}
+                />
             </div>
         )
     }
@@ -147,6 +152,11 @@ class App extends Component {
         if (!checkResult) return
 
         console.log('handleSubmit')
+        this.setState({ isShowSweetAlert: true })
+    }
+
+    handleHideSweetAlert = () => {
+        this.setState({ isShowSweetAlert: false })
     }
 }
 
