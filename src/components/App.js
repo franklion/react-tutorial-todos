@@ -89,36 +89,25 @@ class App extends Component {
         )
     }
 
-    handelAddToAnswer = (questionSeriesNumber, option) => {                
-        const { questions } = this.state
-        let answer = [ ...questions[questionSeriesNumber].answer ]
+    handelAddToAnswer = (questionSeriesNumber, option) => {           
+        const questions = JSON.parse(JSON.stringify(this.state.questions))
+        let answer = questions[questionSeriesNumber].answer
         const type = questions[questionSeriesNumber].type
         const isEqual = answer.some(item => item === option)
 
-        if (type === 'single') {
-            answer = this.handleSingleAnswer(isEqual, option)
-        } else {
-            answer = this.handleMultipleAnswer(answer, isEqual, option)
-        }
-
-        const singleQuestion = { ...questions[questionSeriesNumber], answer }
-        const updateQuestions = { ...questions, [questionSeriesNumber] : singleQuestion }
-        this.setState({ questions: updateQuestions }, () => {
-            this.handldeProcess()
-        })
-    }
-
-    handleSingleAnswer = (isEqual, option) => {
-        return isEqual ? [] : [option]
-    }
-
-    handleMultipleAnswer = (answer, isEqual, option) => {
-        if (!isEqual) {
+        if (!isEqual && type === 'single') {
+            answer = [option]
+        } else if (!isEqual && type === 'multiple') {
             answer.push(option)
-        } else {
+        } else if (isEqual) {
             answer = answer.filter(item => item !== option)
         }
-        return answer
+
+        questions[questionSeriesNumber].answer = answer
+
+        this.setState({ questions }, () => {
+            this.handldeProcess()
+        })
     }
 
     handldeProcess = () => {
