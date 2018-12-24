@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import Cover from '../images/cover.jpg'
+import Banner from '../images/banner.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-// https://www.surveycake.com/s/Vxz86
+// reference: https://www.surveycake.com/s/Vxz86
+// firebase: https://lunch-survey.firebaseapp.com
 
 
 class App extends Component {
   render() {
     return (
-      <div className="app">
+      <div id="app">
         <div className="container">
             <div className="banner">
-                <img src={Cover} className="cover" alt="cover"/>
+                <img src={Banner} className="banner-image" alt="banner"/>
             </div>
             <div className="intro">
                 <h1 className="intro-title">公司午餐外送</h1>
@@ -31,40 +32,40 @@ class App extends Component {
                     <div className="require-answer-tip">此題必填</div>
                     <div className="subject-answer">
                     <div className="option is-active">
-                        <FontAwesomeIcon icon={['far', 'dot-circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'dot-circle']} className="icon-option" />
                         排骨飯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         排骨蛋炒飯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         椒麻雞飯
                     </div>
 
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         海南雞飯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         炸雞腿飯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         滷雞腿飯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         蒲燒鯛魚飯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         雞排飯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         豬排飯
                     </div>
                     </div>
@@ -75,11 +76,11 @@ class App extends Component {
                     <h1 className="subject-title" data-index="2">需要加湯嗎</h1>
                     <div className="subject-answer">
                     <div className="option is-active">
-                        <FontAwesomeIcon icon={['far', 'dot-circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'dot-circle']} className="icon-option" />
                         要
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         不要
                     </div>
                     </div>
@@ -90,19 +91,19 @@ class App extends Component {
                     <h1 className="subject-title" data-index="3">要什麼湯</h1>
                     <div className="subject-answer">
                     <div className="option is-active">
-                        <FontAwesomeIcon icon={['far', 'dot-circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'dot-circle']} className="icon-option" />
                         豆腐湯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         青菜湯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         蛋花湯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'circle']} className="icon-option" />
                         貢丸湯
                     </div>
                     </div>
@@ -113,23 +114,23 @@ class App extends Component {
                     <h1 className="subject-title" data-index="4">有其他需求嗎</h1>
                     <div className="subject-answer">
                     <div className="option is-active">
-                        <FontAwesomeIcon icon={['fas', 'check-square']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['fas', 'check-square']} className="icon-option" />
                         加飯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'square']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'square']} className="icon-option" />
                         少飯
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'square']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'square']} className="icon-option" />
                         去蔥
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'square']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'square']} className="icon-option" />
                         其他
                     </div>
                     <div className="option">
-                        <FontAwesomeIcon icon={['far', 'square']} className="icon-circle" />
+                        <FontAwesomeIcon icon={['far', 'square']} className="icon-option" />
                         無
                     </div>
                     </div>

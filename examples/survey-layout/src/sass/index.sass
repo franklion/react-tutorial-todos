@@ -1,16 +1,19 @@
 @import './_normalize.sass'
 @import './_normalize-custom.sass'
 
+#app
+    padding-bottom: 100px
+    
 .container
     width: 800px
-    margin: 0 auto 100px
+    margin: 0 auto
     background-color: #FFF
     border-right: none
     border-left: none
     box-shadow: #eec898 0 2px 2px 0
 
 //- footer 區塊    
-.fixed-footer
+.fixed-footer  
     width: 100%
     height: 40px
     position: fixed
@@ -45,7 +48,7 @@
 .banner
     max-height: 400px
     overflow: hidden
-    .cover
+    .banner-image
         display: block
         width: 100%
         height: auto
@@ -73,7 +76,7 @@
 //- 頁面icon
 .icon-hand-point-down
     margin: 0 4px
-.icon-circle
+.icon-option
     color: #eec898
     margin-right: 9px
 .require-answer-tip
@@ -85,6 +88,15 @@
     margin-left: 39px
     color: #fff
     background-color: rgba(86,178,50,.8)
+.hidden-radio
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 99
+    opacity: 0
+    cursor: pointer
 
 //- 表單 區塊
 .survey-form
@@ -130,6 +142,7 @@
 
             .option
                 width: 48%
+                position: relative
                 cursor: pointer
                 color: #F5A72E
                 font-size: 18px
@@ -143,7 +156,7 @@
                 &.is-active   
                     background-color: #F5A72E
                     color: #fff
-                    .icon-circle
+                    .icon-option
                         color: #fff
     .btn-wrapper
         padding: 0 16px 22px
@@ -160,3 +173,68 @@
             cursor: pointer
             &:hover
                 background-color: #F6B048
+
+// copy right
+.copy-right
+    text-align: center
+    padding: 30px 0
+    .icon-logo
+        display: block
+        margin: 0 auto
+        width: 100px
+        height: auto
+        padding: 0 0 10px    
+// alert
+.alert-bg
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: rgba(0,0,0,.3)
+    .alert
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        width: 561px
+        height: 411px
+        border-radius: 5px
+        background-color: #fff
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3)
+        animation-name: zoomIn
+        animation-duration: .3s
+    .icon-lunch
+        display: block
+        width: 30%
+        height: auto
+        padding-bottom: 20px 
+    .title
+        color: #595959
+        padding-bottom: 5px 
+    .desc
+        color: #545454
+        padding-bottom: 50px    
+    .btn-ok
+        display: block
+        border-radius: .25rem
+        background-color: #3085d6
+        color: #fff
+        font-size: 16px
+        padding: 10px 32px
+        border: 0
+        cursor: pointer
+        &:hover
+            background-color: rgba(48, 133, 214, .9)
+
+
+@keyframes zoomIn
+  from
+    opacity: 0
+    transform: scale3d(0.3, 0.3, 0.3)
+  
+  50%
+    opacity: 1
