@@ -7,6 +7,7 @@ import Banner from './Banner';
 import Introduction from './Introduction';
 import Begin from './Begin';
 import Question from './Question';
+import CopyRight from './CopyRight';
 import Footer from './Footer';
 import SweetAlert from './SweetAlert';
 
@@ -55,7 +56,7 @@ class App extends Component {
         const { title, desc, questions, isTriggerShowAllAnswerTip, isShowSweetAlert } = this.state
 
         return (
-            <div id="app" className="app">
+            <div id="app">
                 <div className="container">
                     <Banner bannerImage={BannerImage} />
                     <Introduction title={title}
@@ -66,6 +67,7 @@ class App extends Component {
                     <form id="survey-form" className="survey-form" onSubmit={this.handleSubmit}>
                         {
                             Object.keys(questions).map((key, index) => (
+                                
                                 <Question key={key}
                                           index={index + 1}
                                           questionSeriesNumber={key}
@@ -79,7 +81,10 @@ class App extends Component {
                             <button type="submit" className="btn-submit">送出</button>
                         </div>    
                     </form>
+                    
+                    <CopyRight />
                 </div>
+
 
                 <Footer percentage={this.handldeProcess()} />
                 <SweetAlert isShowSweetAlert={isShowSweetAlert}

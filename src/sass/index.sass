@@ -1,16 +1,19 @@
 @import './_normalize.sass'
 @import './_normalize-custom.sass'
 
+#app
+    padding-bottom: 100px
+    
 .container
     width: 800px
-    margin: 0 auto 100px
+    margin: 0 auto
     background-color: #FFF
     border-right: none
     border-left: none
     box-shadow: #eec898 0 2px 2px 0
 
 //- footer 區塊    
-.fixed-footer
+.fixed-footer  
     width: 100%
     height: 40px
     position: fixed
@@ -171,6 +174,16 @@
             &:hover
                 background-color: #F6B048
 
+// copy right
+.copy-right
+    text-align: center
+    padding: 30px 0
+    .icon-logo
+        display: block
+        margin: 0 auto
+        width: 100px
+        height: auto
+        padding: 0 0 10px    
 // alert
 .alert-bg
     position: fixed
