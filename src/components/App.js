@@ -10,6 +10,7 @@ import Question from './Question';
 import CopyRight from './CopyRight';
 import Footer from './Footer';
 import SweetAlert from './SweetAlert';
+import base from '../base';
 
 // https://www.surveycake.com/s/Vxz86
 
@@ -26,34 +27,37 @@ class App extends Component {
                     type: 'single',
                     title: '今天想吃什麼',
                     options: ['排骨飯', '排骨蛋炒飯', '椒麻雞飯', '海南雞飯', '炸雞腿飯', '滷雞腿飯', '蒲燒鯛魚飯', '雞排飯', '豬排飯'],
-                    answer: []
+                    answer: [],
+                    isShowAnswerTip: false
                 },
                 question2: {
                     type: 'single',
                     title: '需要加湯嗎',
                     options: ['要', '不要'],
-                    answer: []
+                    answer: [],
+                    isShowAnswerTip: false
                 },
                 question3: {
                     type: 'single',
                     title: '要什麼湯',
                     options: ['豆腐湯', '青菜湯', '蛋花湯', '貢丸湯'],
-                    answer: []
+                    answer: [],
+                    isShowAnswerTip: false
                 },
                 question4: {
                     type: 'multiple',
                     title: '有其他需求嗎',
                     options: ['加飯', '少飯', '去蔥', '其他', '無'],
-                    answer: []
+                    answer: [],
+                    isShowAnswerTip: false
                 }
             },
-            isTriggerShowAllAnswerTip: false,
             isShowSweetAlert: false
         }
     }
 
     render() {
-        const { title, desc, questions, isTriggerShowAllAnswerTip, isShowSweetAlert } = this.state
+        const { title, desc, questions, isShowSweetAlert } = this.state
 
         return (
             <div id="app">
@@ -72,7 +76,6 @@ class App extends Component {
                                           index={index + 1}
                                           questionSeriesNumber={key}
                                           details={questions[key]}
-                                          isTriggerShowAllAnswerTip={isTriggerShowAllAnswerTip}
                                           handelAddToAnswer={this.handelAddToAnswer}
                                 />
                             )) 
@@ -106,13 +109,12 @@ class App extends Component {
             answer.push(option)
         } else if (isEqual) {
             answer = answer.filter(item => item !== option)
+            questions[questionSeriesNumber].isShowAnswerTip = true
         }
 
         questions[questionSeriesNumber].answer = answer
-
-        this.setState({ questions }, () => {
-            this.handldeProcess()
-        })
+        
+        this.setState({ questions }, () => this.handldeProcess() )
     }
 
     handldeProcess = () => {
@@ -135,18 +137,43 @@ class App extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const { questions } = this.state
+        const voteName = `anonymous_${new Date().getTime()}`
+        const questions = JSON.parse(JSON.stringify(this.state.questions))
         const checkResult = Object.keys(questions).every((item, index) => {
             if (questions[item].answer.length > 0) return true
             
-            this.setState({ isTriggerShowAllAnswerTip: true }, () => this.scrollTo(index + 1))
+            this.scrollTo(index + 1)
             return false
         })
 
-        if (!checkResult) return
+        if (!checkResult) {
+            Object.keys(questions).forEach(question => questions[question].isShowAnswerTip = true)
+            this.setState({ questions })
+            return
+        }
 
-        console.log('handleSubmit')
-        this.setState({ isShowSweetAlert: true })
+        // ------------------------- handleSubmit ------------------------------
+        console.log('handleSubmit', questions)
+
+        
+       
+        base.post(`${voteName}/questions`, {
+            data: questions
+        }).then(() => {
+            console.log(`${voteName} vote success`)
+            this.handleResetQuestions(questions)
+        }).catch(err => {
+            console.log(err)
+        });
+    }
+
+    handleResetQuestions = questions => {
+        Object.keys(questions).forEach(question => {
+            questions[question].answer = []
+            questions[question].isShowAnswerTip = false
+        })
+ 
+        this.setState({ isShowSweetAlert: true, questions })
     }
 
     handleHideSweetAlert = () => {

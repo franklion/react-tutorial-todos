@@ -28,10 +28,10 @@ class Option extends Component {
         return answer.some(item => item === option)
     }
 
-    handelAddToAnswer = () => {
+    handelAddToAnswer = (e) => {
+        console.log('handelAddToAnswer')
         const { questionSeriesNumber, option } = this.props
         this.props.handelAddToAnswer(questionSeriesNumber , option)
-        this.props.handleReadyToShowAnswerTip()
     }
 }
 
@@ -41,7 +41,6 @@ Option.propTypes = {
     type: PropTypes.string.isRequired,
     option: PropTypes.string.isRequired,
     handelAddToAnswer: PropTypes.func.isRequired,
-    handleReadyToShowAnswerTip: PropTypes.func.isRequired
 };
 
 export default Option;

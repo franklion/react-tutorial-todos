@@ -1,63 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Element } from 'react-scroll';
 import Option from './Option';
 
-class Question extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            isReadyToShowAnswerTip: props.isTriggerShowAllAnswerTip || false
-        }
-    }
-    
-    componentDidUpdate(prevProps) {
-        if (prevProps.isTriggerShowAllAnswerTip !== this.props.isTriggerShowAllAnswerTip) {
-            this.setState({ isReadyToShowAnswerTip: this.props.isTriggerShowAllAnswerTip })
-        }
-    }
+const Question = props =>  {
 
-    render() {
-        const { index, questionSeriesNumber, handelAddToAnswer } = this.props
-        const { title, options, answer, type } = this.props.details
+    const { index, questionSeriesNumber, handelAddToAnswer } = props
+    const { title, options, answer, type, isShowAnswerTip } = props.details
 
-        return (
-            <Element name={`subject-wrapper${index}`}>
-                <div className="subject-wrapper" >
-                    <h1 className="subject-title" data-index={index}>{title}</h1>
+    return (
+        <Element name={`subject-wrapper${index}`}>
+            <div className="subject-wrapper" >
+                <h1 className="subject-title" data-index={index}>{title}</h1>
+                {
+                    answer.length === 0 && isShowAnswerTip &&
+                    <p className="require-answer-tip">此題必填</p>
+                }
+                <div className="subject-answer">
                     {
-                        answer.length === 0 && this.state.isReadyToShowAnswerTip &&
-                        <p className="require-answer-tip">此題必填</p>
+                        options.map((option, index) => (
+                            <Option key={index}
+                                questionSeriesNumber={questionSeriesNumber}
+                                answer={answer}
+                                type={type}    
+                                option={option}
+                                handelAddToAnswer={handelAddToAnswer}
+                            />
+                        ))
                     }
-                    <div className="subject-answer">
-                        {
-                            options.map((option, index) => (
-                                <Option key={index}
-                                    questionSeriesNumber={questionSeriesNumber}
-                                    answer={answer}
-                                    type={type}    
-                                    option={option}
-                                    handelAddToAnswer={handelAddToAnswer}
-                                    handleReadyToShowAnswerTip={this.handleReadyToShowAnswerTip}
-                                />
-                            ))
-                        }
-                    </div>
                 </div>
-            </Element>
-            
-        );
-    }
-
-    handleReadyToShowAnswerTip = () => {
-        if (this.state.isReadyToShowAnswerTip === true) return
-        this.setState({ isReadyToShowAnswerTip: true })
-    }
+            </div>
+        </Element>
+    );
 }
-
-
-
 
 Question.propTypes = {
     index: PropTypes.number.isRequired,
