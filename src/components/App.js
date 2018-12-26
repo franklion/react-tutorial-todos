@@ -161,27 +161,20 @@ class App extends Component {
             return
         }
 
-
         // ------------------------- handleSubmit ------------------------------
-        console.log('handleSubmit', questions)
-
-        base.post(`${voteName}/questions`, {
-            data: questions
-        }).then(() => {
-            console.log(`${voteName} vote success`)
-            this.handleResetQuestions(questions)
-        }).catch(err => {
-            console.log(err)
-        });
+        base.post(`${voteName}/questions`, { data: questions })
+            .then(() => this.handleResetQuestions(questions) )
+            .catch(err =>  console.log(err) );
     }
 
     handleResetQuestions = questions => {
-        Object.keys(questions).forEach(question => {
-            questions[question].answer = []
-            questions[question].isShowAnswerTip = false
+        const resetQuestions = JSON.parse(JSON.stringify(this.state.questions))
+        Object.keys(resetQuestions).forEach(question => {
+            resetQuestions[question].answer = []
+            resetQuestions[question].isShowAnswerTip = false
         })
  
-        this.setState({ isShowSweetAlert: true, questions })
+        this.setState({ isShowSweetAlert: true, questions: resetQuestions })
     }
 
     handleHideSweetAlert = () => {

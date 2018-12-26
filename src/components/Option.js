@@ -29,7 +29,6 @@ class Option extends Component {
     }
 
     handelAddToAnswer = (e) => {
-        console.log('handelAddToAnswer')
         const { questionSeriesNumber, option } = this.props
         this.props.handelAddToAnswer(questionSeriesNumber , option)
     }
