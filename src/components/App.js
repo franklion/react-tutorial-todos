@@ -105,8 +105,10 @@ class App extends Component {
 
         if (!isEqual && type === 'single') {
             answer = [option]
+            questions[questionSeriesNumber].isShowAnswerTip = false
         } else if (!isEqual && type === 'multiple') {
             answer.push(option)
+            questions[questionSeriesNumber].isShowAnswerTip = false
         } else if (isEqual) {
             answer = answer.filter(item => item !== option)
             questions[questionSeriesNumber].isShowAnswerTip = true
@@ -139,24 +141,28 @@ class App extends Component {
         e.preventDefault()
         const voteName = `anonymous_${new Date().getTime()}`
         const questions = JSON.parse(JSON.stringify(this.state.questions))
-        const checkResult = Object.keys(questions).every((item, index) => {
-            if (questions[item].answer.length > 0) return true
+
+        // find the first inValid question and scroll to the question
+        const checkResult = Object.keys(questions).every((question, index) => {
+            if (questions[question].answer.length > 0) return true
             
             this.scrollTo(index + 1)
             return false
         })
-
+        
+        // check answers and show tip
         if (!checkResult) {
-            Object.keys(questions).forEach(question => questions[question].isShowAnswerTip = true)
+            Object.keys(questions).forEach(question => {
+                if (questions[question].answer.length === 0) questions[question].isShowAnswerTip = true
+            })
             this.setState({ questions })
             return
         }
 
+
         // ------------------------- handleSubmit ------------------------------
         console.log('handleSubmit', questions)
 
-        
-       
         base.post(`${voteName}/questions`, {
             data: questions
         }).then(() => {
