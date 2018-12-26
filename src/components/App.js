@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { scroller } from 'react-scroll';
 import BannerImage from '../images/banner.jpg';
+import LunchImage from '../images/lunch.svg';
 
 // components
 import Banner from './Banner';
@@ -92,6 +93,7 @@ class App extends Component {
                 <Footer percentage={this.handldeProcess()} />
                 <SweetAlert isShowSweetAlert={isShowSweetAlert}
                             handleHideSweetAlert={this.handleHideSweetAlert}
+                            lunchImage={LunchImage}
                 />
             </div>
         )
