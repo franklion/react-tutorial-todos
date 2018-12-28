@@ -12,6 +12,7 @@ import CopyRight from './CopyRight';
 import Footer from './Footer';
 import SweetAlert from './SweetAlert';
 import base from '../base';
+import sampleQuestions from '../sample-questions'
 
 // https://www.surveycake.com/s/Vxz86
 
@@ -23,38 +24,13 @@ class App extends Component {
         this.state = {
             title: '公司午餐外送',
             desc: '訂餐囉！今天要訂的是101食堂，大家想吃什麼呢？',
-            questions: {
-                question1: {
-                    type: 'single',
-                    title: '今天想吃什麼',
-                    options: ['排骨飯', '排骨蛋炒飯', '椒麻雞飯', '海南雞飯', '炸雞腿飯', '滷雞腿飯', '蒲燒鯛魚飯', '雞排飯', '豬排飯'],
-                    answer: [],
-                    isShowAnswerTip: false
-                },
-                question2: {
-                    type: 'single',
-                    title: '需要加湯嗎',
-                    options: ['要', '不要'],
-                    answer: [],
-                    isShowAnswerTip: false
-                },
-                question3: {
-                    type: 'single',
-                    title: '要什麼湯',
-                    options: ['豆腐湯', '青菜湯', '蛋花湯', '貢丸湯'],
-                    answer: [],
-                    isShowAnswerTip: false
-                },
-                question4: {
-                    type: 'multiple',
-                    title: '有其他需求嗎',
-                    options: ['加飯', '少飯', '去蔥', '其他', '無'],
-                    answer: [],
-                    isShowAnswerTip: false
-                }
-            },
+            questions: {},
             isShowSweetAlert: false
         }
+    }
+
+    componentDidMount() {
+        this.setState({ questions: sampleQuestions })
     }
 
     render() {
@@ -162,12 +138,13 @@ class App extends Component {
         }
 
         // ------------------------- handleSubmit ------------------------------
-        base.post(`${voteName}/questions`, { data: questions })
+
+        base.post(`${voteName}`, { data: questions })
             .then(() => this.handleResetQuestions(questions) )
             .catch(err =>  console.log(err) );
     }
 
-    handleResetQuestions = questions => {
+    handleResetQuestions = () => {
         const resetQuestions = JSON.parse(JSON.stringify(this.state.questions))
         Object.keys(resetQuestions).forEach(question => {
             resetQuestions[question].answer = []
