@@ -1,0 +1,76 @@
+.survey-result-page
+    width: 1000px
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    padding: 50px 0
+    margin: 0 auto
+
+    .note-panel
+        width: 100%
+        background-color: #fff
+        border-radius: 5px 5px 0 0
+        padding: 25px 20px
+        margin-bottom: 2px
+
+    .suvey-panel
+        width: 100%
+        background-color: #fff
+        border-radius: 0 0 5px 5px 
+        padding: 25px 38px
+
+        .row
+            display: flex
+            justify-content: space-between
+            margin-bottom: 50px 
+
+        .survey-question
+            width: 56%
+            .title
+                font-size: 22px
+                color: #6b6b6b
+                margin: 0 0 8px 0
+            .title-number
+                color: #fff
+                padding: 0 7px
+                border-radius: 3px
+                background-color: #f5a72e
+
+            .survey-table
+                width: 100%
+                max-width: 560px
+                color: #615d5d
+                border: 1px solid #ddd
+                border-spacing: 0
+                border-collapse: collapse
+                background-color: transparent
+                .table-thead
+                    background-color: #f6f6f6
+                    & tr th
+                        padding: 10px
+                        border: 1px solid #ddd
+                        &:nth-of-type(1)
+                            width: 57%
+                        &:nth-of-type(2)
+                            width: 23%
+                        &:nth-of-type(3)
+                            width: 20%        
+                .table-tbody
+                    & tr td
+                        padding: 10px
+                        border: 1px solid #ddd
+                    .answer-color-tip
+                        width: 10px
+                        height: 10px
+                        display: inline-block
+                        margin-right: 10px
+                        background-color: #eee
+                        &.is-active
+                            background-color: #F29A29    
+
+        .survey-chart
+            position: relative
+            width: 40%
+            height: 400px
+            margin-top: 38px 
