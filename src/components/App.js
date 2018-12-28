@@ -155,7 +155,11 @@ class App extends Component {
     }
 
     handleHideSweetAlert = () => {
-        this.setState({ isShowSweetAlert: false })
+        this.setState({ isShowSweetAlert: false }, () => {
+            this.props.history.push({
+                pathname: '/survey_result',
+            })
+        })
     }
 }
 

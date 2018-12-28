@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 class SurveyQuestion extends Component {
 
     render() {
         const { details, index } = this.props
-        const { answers, total } = details
+        const { answers, total, optionColors } = details
 
         return (
             <div className="survey-question">
@@ -25,10 +24,10 @@ class SurveyQuestion extends Component {
                     </thead>
                     <tbody className="table-tbody">
                         {
-                            Object.keys(answers).map((answer, index ) => (
+                            Object.keys(answers).map((answer, index) => (
                                 <tr key={index}>
                                     <td>
-                                        <span className={this.handleAnswerColorTip(answers[answer])}></span>
+                                        <span className="answer-color-tip" style={this.handleAnswerColorTip(answers[answer], optionColors[index])}></span>
                                         { answer }
                                     </td>
                                     <td>{ answers[answer] }</td>
@@ -42,11 +41,10 @@ class SurveyQuestion extends Component {
         );
     }
 
-    handleAnswerColorTip = (total) => {
-        return classNames({
-            'answer-color-tip': true,
-            'is-active': total > 0
-        })
+    handleAnswerColorTip = (total, optionColor) => {
+        return {
+            backgroundColor: total > 0 ? optionColor : '#eee'
+        }
     }
 }
 

@@ -1,15 +1,17 @@
 export function getColors(amount) {
     const colors = [
-        "#ffd700",
-        "#b0e0e6",
-        "#ffb6c1",
-        "#faebd7",
-        "#66cdaa",
-        "#c39797",
-        "#afeeee",
-        "#dddddd",
-        "#a0db8e",
-        "#fef65b",
+        "#f9b152",
+        "#bf9480",
+        "#3e6f8d",
+        "#980101",
+        "#c0d59f",
+        "#99d2e3",
+        "#eeccc3",
+        "#88b04d",
+        "#ff8c69",
+        "#00ff7f",
+        "#f7931a",
+        "#db95f8",
     ];
 
     return colors.sort(() => .5 - Math.random() )

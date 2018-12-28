@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Doughnut } from 'react-chartjs-2';
-import { getColors } from '../helpers'
 
 class SurveyChart extends Component {
     constructor(props) {
@@ -9,7 +8,7 @@ class SurveyChart extends Component {
         
         this.state = {
             chartData: {},
-            chartBackgroundColor: getColors(Object.keys(props.details.answers).length)
+            chartBackgroundColor: props.details.optionColors
         }
     }
 

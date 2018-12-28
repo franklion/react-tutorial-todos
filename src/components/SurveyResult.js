@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { getColors } from '../helpers'
 
 // components
 import base from '../base';
 import sampleQuestions from '../sample-questions'
 import SurveyQuestion from '../components/SurveyQuestion'
 import SurveyChart from '../components/SurveyChart'
+
 
 // structure
 /*
@@ -67,7 +69,8 @@ class SurveyResult extends Component {
                         surveyResult[question] = {
                             title: sampleQuestions[question].title,
                             answers: {},
-                            total: 0
+                            total: 0,
+                            optionColors: getColors(sampleQuestions[question].options.length)
                         }
 
                         sampleQuestions[question].options.forEach(option => {
@@ -118,7 +121,7 @@ class SurveyResult extends Component {
                                                     details={surveyResult[question]}
                                                     />
                                     <SurveyChart details={surveyResult[question]}
-                                    />      
+                                                />      
                                 </div>
                             ))
                         }
