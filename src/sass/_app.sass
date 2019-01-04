@@ -3,6 +3,10 @@
     padding-bottom: 100px
 
 .container
+    +respond-to('mb')
+        width: 100%
+    +respond-to('pad')
+        width: 100%
     width: 800px
     margin: 0 auto
     background-color: #FFF
@@ -78,6 +82,8 @@
     color: #eec898
     margin-right: 9px
 .require-answer-tip
+    +respond-to('mb')
+        margin-left: 14px
     display: inline-block
     font-size: 13px
     border-radius: 3px
@@ -99,6 +105,9 @@
 //- 表單 區塊
 .survey-form
     .subject-wrapper
+        +respond-to('mb')
+            margin: 10px auto
+            padding: 0 16px 10px
         width: 100%
         height: auto
         box-sizing: border-box
@@ -112,12 +121,16 @@
             width: 6%
             font-size: 1em
         .subject-title
+            +respond-to('mb')
+                 padding-left: 30px
             position: relative
             color: #EF7D00
             font-size: 1.17em
             padding-left: 41px
             font-weight: 500
             &:before
+                +respond-to('mb')
+                    top: 1px
                 content: attr(data-index)
                 position: absolute
                 left: 11px
@@ -131,6 +144,14 @@
                 font-size: 12px
                 color: #6DAD4B
         .subject-answer
+            +respond-to('mb')
+                width: 93%
+                margin-left: 4%
+                flex-direction: column
+            +respond-to('pad')
+                width: 93%
+                margin-left: 4%
+                flex-direction: row   
             width: 96%
             margin: 10px
             margin-left: 5%
@@ -139,6 +160,11 @@
             flex-wrap: wrap
 
             .option
+                +respond-to('mb')
+                    width: 100%
+                    padding: 5px 0 5px 15px
+                    margin-bottom: 13px
+                    font-size: 1rem
                 width: 48%
                 position: relative
                 cursor: pointer
@@ -151,6 +177,8 @@
                 border-radius: 3px
                 -webkit-tap-highlight-color: rgba(0,0,0,0)
                 &:nth-child(2n+1)
+                    +respond-to('mb')
+                        margin-right: 0
                     margin-right: 2%
                 &.is-active   
                     background-color: #F5A72E
@@ -195,6 +223,12 @@
     align-items: center
     background-color: rgba(0,0,0,.3)
     .alert
+        +respond-to('mb')
+            width: 50vh
+            height: 340px
+        +respond-to('pad')
+            width: 390px
+            height: 340px    
         display: flex
         flex-direction: column
         justify-content: center

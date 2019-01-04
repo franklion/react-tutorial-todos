@@ -1,4 +1,10 @@
 .survey-result-page
+    +respond-to('mb')
+        width: 100%
+        padding: 0
+    +respond-to('pad')
+        width: 100%
+        padding: 0
     width: 1000px
     display: flex
     justify-content: center
@@ -8,6 +14,8 @@
     margin: 0 auto
 
     .note-panel
+        +respond-to('mb')
+            padding: 25px 20px
         width: 100%
         background-color: #fff
         border-radius: 5px 5px 0 0
@@ -15,17 +23,23 @@
         margin-bottom: 2px
 
     .suvey-panel
+        +respond-to('mb')
+            padding: 25px 20px
         width: 100%
         background-color: #fff
         border-radius: 0 0 5px 5px 
         padding: 25px 38px
 
         .row
+            +respond-to('mb')
+                flex-direction: column        
             display: flex
             justify-content: space-between
             margin-bottom: 50px 
 
         .survey-question
+            +respond-to('mb')
+                width: 100%
             width: 56%
             .title
                 font-size: 22px
@@ -51,10 +65,16 @@
                         padding: 10px
                         border: 1px solid #ddd
                         &:nth-of-type(1)
+                            +respond-to('mb')
+                                width: 50%
                             width: 57%
                         &:nth-of-type(2)
+                            +respond-to('mb')
+                                width: 27%
                             width: 23%
                         &:nth-of-type(3)
+                            +respond-to('mb')
+                                width: 23%
                             width: 20%        
                 .table-tbody
                     & tr td
@@ -70,6 +90,11 @@
                             background-color: #F29A29    
 
         .survey-chart
+            +respond-to('mb')
+                width: 75%
+                margin: 18px auto 0
+            +respond-to('pad')
+                margin-top: 0   
             position: relative
             width: 40%
             height: 400px
